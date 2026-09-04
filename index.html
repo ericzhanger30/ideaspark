@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IdeaSpark</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="background-blob blob-one"></div>
+  <div class="background-blob blob-two"></div>
+
+  <nav>
+    <div class="logo">💡 IdeaSpark</div>
+
+    <div class="nav-right">
+      <span>Explore</span>
+      <span>Generator</span>
+      <span>About</span>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="badge">✨ Your next great idea starts here</div>
+
+      <h1>
+        Turn your curiosity into
+        <span>something amazing.</span>
+      </h1>
+
+      <p>
+        Choose what you're interested in and IdeaSpark will create
+        a personalized idea for you.
+      </p>
+
+      <a href="#generator" class="hero-button">
+        Start Generating ↓
+      </a>
+
+      <div class="floating-icons">
+        <div>🎮</div>
+        <div>🚀</div>
+        <div>🎨</div>
+        <div>📚</div>
+        <div>🤖</div>
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORY CARDS -->
+    <section class="categories">
+
+      <h2>What do you want to create?</h2>
+      <p>Choose a category or let us surprise you.</p>
+
+      <div class="category-grid">
+
+        <button class="category-card" data-category="school">
+          <div class="category-icon">📚</div>
+          <h3>School Project</h3>
+          <p>Creative ideas for assignments and projects.</p>
+        </button>
+
+        <button class="category-card" data-category="business">
+          <div class="category-icon">🚀</div>
+          <h3>Business</h3>
+          <p>Invent products, services and startup ideas.</p>
+        </button>
+
+        <button class="category-card" data-category="game">
+          <div class="category-icon">🎮</div>
+          <h3>Game</h3>
+          <p>Create unique game worlds and challenges.</p>
+        </button>
+
+        <button class="category-card" data-category="story">
+          <div class="category-icon">✍️</div>
+          <h3>Story</h3>
+          <p>Characters, mysteries and strange adventures.</p>
+        </button>
+
+        <button class="category-card" data-category="website">
+          <div class="category-icon">💻</div>
+          <h3>Website</h3>
+          <p>Useful websites people might actually use.</p>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- GENERATOR -->
+    <section class="generator-section" id="generator">
+
+      <div class="generator-box">
+
+        <div class="generator-heading">
+          <div>
+            <span class="small-label">IDEA GENERATOR</span>
+            <h2>Let's create something.</h2>
+          </div>
+
+          <div class="bulb">💡</div>
+        </div>
+
+
+        <div class="controls">
+
+          <div class="input-group">
+            <label>Category</label>
+
+            <select id="category">
+              <option value="school">📚 School Project</option>
+              <option value="business">🚀 Business</option>
+              <option value="game">🎮 Game</option>
+              <option value="story">✍️ Story</option>
+              <option value="website">💻 Website</option>
+            </select>
+          </div>
+
+
+          <div class="input-group">
+            <label>Difficulty</label>
+
+            <select id="difficulty">
+              <option value="Easy">🌱 Easy</option>
+              <option value="Medium" selected>⚡ Medium</option>
+              <option value="Challenge">🔥 Challenge</option>
+            </select>
+          </div>
+
+
+          <div class="input-group">
+            <label>Time available</label>
+
+            <select id="time">
+              <option value="A few hours">⏱ A few hours</option>
+              <option value="A few days">📅 A few days</option>
+              <option value="1–2 weeks" selected>🗓 1–2 weeks</option>
+              <option value="A month">🚀 A month</option>
+            </select>
+          </div>
+
+        </div>
+
+
+        <div class="interest-box">
+          <label>Something you're interested in</label>
+
+          <input
+            id="interest"
+            type="text"
+            placeholder="Example: AI, football, space, music..."
+          >
+        </div>
+
+
+        <div class="button-row">
+
+          <button id="generateButton" class="generate-button">
+            ✨ Generate My Idea
+          </button>
+
+          <button id="surpriseButton" class="surprise-button">
+            🎲 Surprise Me
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESULT -->
+
+      <div id="resultCard" class="result-card hidden">
+
+        <div class="idea-top">
+
+          <div id="resultIcon" class="result-icon">
+            💡
+          </div>
+
+          <div class="idea-badges">
+            <span id="difficultyBadge">Medium</span>
+            <span id="timeBadge">1–2 weeks</span>
+          </div>
+
+        </div>
+
+
+        <p class="idea-label">YOUR NEW IDEA</p>
+
+        <h2 id="ideaTitle">
+          Your idea appears here
+        </h2>
+
+        <p id="ideaDescription" class="idea-description"></p>
+
+
+        <div class="details-grid">
+
+          <div class="detail-card">
+            <span>🎯</span>
+
+            <div>
+              <h4>The Goal</h4>
+              <p id="ideaGoal"></p>
+            </div>
+          </div>
+
+
+          <div class="detail-card">
+            <span>🚀</span>
+
+            <div>
+              <h4>First Step</h4>
+              <p id="ideaStep"></p>
+            </div>
+          </div>
+
+
+          <div class="detail-card">
+            <span>✨</span>
+
+            <div>
+              <h4>Creative Twist</h4>
+              <p id="ideaTwist"></p>
+            </div>
+          </div>
+
+
+          <div class="detail-card">
+            <span>💭</span>
+
+            <div>
+              <h4>Why It's Interesting</h4>
+              <p id="ideaWhy"></p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="result-buttons">
+
+          <button id="anotherButton">
+            🔄 Another Idea
+          </button>
+
+          <button id="copyButton">
+            📋 Copy Idea
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DISCOVERY SECTION -->
+
+    <section class="inspiration">
+
+      <div class="inspiration-text">
+        <span>🌟 INSPIRATION</span>
+
+        <h2>
+          Big ideas usually begin with small questions.
+        </h2>
+
+        <p>
+          Try unusual combinations. A football idea doesn't have to
+          become a football game. It could become a science project,
+          business, story or website.
+        </p>
+      </div>
+
+      <div class="question-cards">
+
+        <div class="question-card">
+          <span>🤔</span>
+          <p>What problem annoys people every day?</p>
+        </div>
+
+        <div class="question-card">
+          <span>🔀</span>
+          <p>What happens if you combine two completely different things?</p>
+        </div>
+
+        <div class="question-card">
+          <span>🌍</span>
+          <p>What could make someone's life easier?</p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="logo">💡 IdeaSpark</div>
+    <p>Made for curious minds.</p>
+  </footer>
+
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
